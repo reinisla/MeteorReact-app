@@ -1,19 +1,23 @@
 import React, {Component} from 'react';
 
 export default class ResolutionsForm extends Component {
-  resolutions() {
-    return Resolutions.find().fetch();
-  }
+
   addResolution(event) {
     event.preventDefault(); // prevents refreshing
+
     var text = this.refs.resolution.value.trim(); //gets the value and inserts it in text
-    //insert input field
-    Resolutions.insert ({
-      text: text,
-      complete: false,
-      createdAt: new Date()
-    });
-    this.refs.resolution.value = ""; //sets empty after submit
+    if (text) {
+      //insert input field
+      //Call metheor method because removed insecure / methods stored on server file methods.js
+      Meteor.call ('addResolution', text, (error,data)=> { // => allows to use "this"
+      if(error) {
+        Bert.alert('Please login before submitting', 'danger','fixed-top', 'fa-frown-o'  );
+      } else {
+        this.refs.resolution.value = ""; //sets empty after submit
+    }}); }
+
+
+
   }
   render () {
     return (

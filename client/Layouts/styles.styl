@@ -182,7 +182,7 @@ p
             border-color dark-purp
     &.btn-cancel
         color #FFF
-        background transparent
+        background rgb(241, 165, 165)
         border solid 2px #FFF
         opacity 0.4
         shadow-level(-1)
@@ -241,8 +241,14 @@ input:-ms-input-placeholder
     margin 40px 0
     lost-center 700px
     li
+        transition all 0.3s cubic-bezier(0.86, 0, 0.07, 1)
+        shadow-level(1)
+
+        padding 10px
+        background #FFF
         font-size 2em
         margin-bottom 8px
+        trans()
         input
             margin-right 10px
         &.checked
@@ -252,6 +258,10 @@ input:-ms-input-placeholder
             margin-left 40px
             line-height 0.5
             float right
+        a
+          text-decoration none
+          color black
+          text-transform capitalize
 
 .panel-body
     .form-group
@@ -331,16 +341,16 @@ input:-ms-input-placeholder
         transform translate3d(0, 0,0)
 
 .resolutionLoad-enter
-    opacity: 0
+
     animation: slideIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1)
 
 .resolutionLoad-leave
     animation: slideOut 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)
-    opacity: 1.0
+
 
 @keyframes slideIn
     0%
-        opacity 0
+
         transform translate3d(-50px, 0, 0)
     100%
         opacity 1
@@ -348,7 +358,6 @@ input:-ms-input-placeholder
 
 @keyframes slideOut
     0%
-        opacity 1
         transform translate3d(0, 0, 0)
     100%
         opacity 0
@@ -356,14 +365,13 @@ input:-ms-input-placeholder
 
 @keyframes slideUp
     0%
-        opacity 0
         transform translate3d(0, 60px, 0)
     100%
         opacity 1
         transform translate3d(0, 0, 0)
 
 .route-enter, .route-appear
-    opacity: 0
+
     animation: slideIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1)
 
 .route-leave
@@ -371,5 +379,5 @@ input:-ms-input-placeholder
     opacity: 1.0
 
 .route-appear
-    opacity: 0
+
     animation: slideUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1)
